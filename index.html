@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fbe5e5 0%, #fad0c4 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .birthday-title {
+      width: 500px;
+      max-width: 95%;
+      margin-top: 20px;
+      animation: popIn 1.5s ease;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    img.avatar {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 8px solid #fff;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+      margin-top: 15px;
+      animation: popIn 1.5s ease;
+    }
+
+    .gift-container {
+      position: relative;
+      margin-top: 30px;
+      width: 120px;
+      height: 120px;
+      cursor: pointer;
+    }
+
+    .gift-box {
+      width: 100%;
+      height: 100%;
+      background: #e63946;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+
+    .gift-box::before, .gift-box::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+    }
+
+    .gift-box::before {
+      width: 100%;
+      height: 10px;
+      top: 45%;
+      left: 0;
+    }
+
+    .gift-box::after {
+      height: 100%;
+      width: 10px;
+      top: 0;
+      left: 45%;
+    }
+
+    .gift-lid {
+      width: 100%;
+      height: 30px;
+      background: #c21807;
+      border-radius: 12px 12px 0 0;
+      position: absolute;
+      top: -30px;
+      left: 0;
+      transition: transform 1s ease;
+      transform-origin: bottom center;
+      z-index: 2;
+    }
+
+    .gift-container.open .gift-lid {
+      transform: rotateX(120deg);
+    }
+
+    .letter {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 100%);
+      width: 300px;
+      padding: 20px;
+      background: #fffbea;
+      border: 2px solid #e6c2a0;
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+      opacity: 0;
+      transition: all 1s ease;
+      z-index: 0;
+    }
+
+    .gift-container.open .letter {
+      transform: translate(-50%, -220%);
+      opacity: 1;
+    }
+
+    .decor {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .emoji {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.7;
+    }
+
+    .emoji1 { top: 10%; left: 5%; }
+    .emoji2 { top: 20%; right: 7%; }
+    .emoji3 { bottom: 20%; left: 10%; }
+    .emoji4 { bottom: 10%; right: 12%; }
+    .emoji5 { top: 50%; left: 3%; }
+    .emoji6 { top: 55%; right: 4%; }
+  </style>
+</head>
+<body>
+
+  <!-- Trang trí -->
+  <div class="decor">
+    <div class="emoji emoji1">🎁</div>
+    <div class="emoji emoji2">🎂</div>
+    <div class="emoji emoji3">🌸</div>
+    <div class="emoji emoji4">🎈</div>
+    <div class="emoji emoji5">⭐️</div>
+    <div class="emoji emoji6">🎉</div>
+  </div>
+
+  <!-- Tiêu đề -->
+  <img class="birthday-title" src="/img/font-chu-happy-birthday-dep-05.png" alt="Happy Birthday Title" />
+  
+  <!-- Avatar -->
+  <img class="avatar" src="/img/anh.jpg" alt="Avatar" />
+
+  <!-- Hộp quà và thư -->
+  <div class="gift-container" onclick="openGift(this)">
+    <div class="gift-lid"></div>
+    <div class="gift-box"></div>
+    <div class="letter">
+      <strong>Chúc mừng sinh nhật Phương Anh</strong><br><br>
+      Chúc em một ngày sinh nhật thật đặc biệt và trọn vẹn! 🎉<br>
+      Chúc em học tập thật tốt, luôn tự tin và cố gắng với lựa chọn của mình!<br>
+    </div>
+  </div>
+
+  <script>
+    function openGift(element) {
+      element.classList.add('open');
+    }
+  </script>
+</body>
+</html>

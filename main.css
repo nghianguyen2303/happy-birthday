@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dancing Script', cursive;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.startForm {
+    z-index: 7;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: white(to bottom, #cce8e7, #b9d4d2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.6s ease;
+}
+
+.startLetter {
+    position: relative;
+    background-color: white;
+    max-height: 500px;
+    width: 800px;
+    padding: 20px 20px 80px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    transition: all 0.6s ease;
+    transform: translateY(-200%);
+}
+
+.startLetter.active {
+    transform: translateY(0);
+}
+
+.personName {
+    text-align: center;
+    font-size: 38px;
+    color: #ff6392;
+    margin-bottom: 10px;
+}
+
+.avatarPerson {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #ffafc3;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.avatarPerson img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contentLetter {
+    background-color: #fffaf5;
+    max-height: 300px;
+    overflow-y: auto;
+    font-size: 28px;
+    padding: 20px;
+    border-radius: 12px;
+    line-height: 1.6;
+    position: relative;
+}
+
+.contentLetter::after {
+    content: "|";
+    animation: blink 1s infinite;
+    margin-left: 4px;
+    font-weight: bold;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.myAI {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    height: 80px;
+}
+
+.sticker {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 60%);
+    height: 100px;
+    width: 40px;
+    background-color: pink;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+    border-radius: 10px;
+    animation: animateStartLetter 1s ease-in-out infinite alternate;
+}
+
+.sticker::before {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    background-color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: solid 6px rgb(253, 178, 191);
+}
+
+.recieve {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.recieve i {
+    font-size: 28px;
+    color: #ff7ca8;
+}
+
+.recieve:hover {
+    cursor: pointer;
+    transform: translateX(-50%) scale(1.1);
+}
+
+/* --- Background Party --- */
+.backgroundParty {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom, #48d1cc, #e6fcf9);
+    overflow: hidden;
+}
+
+.balloon {
+    position: absolute;
+    bottom: 30px;
+    width: 120px;
+    animation: animateBalloon 1.2s ease-in-out infinite alternate;
+    z-index: 5;
+}
+
+.balloon1 {
+    left: 20%;
+}
+
+.balloon2 {
+    right: 20%;
+}
+
+.bannerParty {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+    animation: animateBanner 1s ease-in-out 1s infinite alternate;
+    z-index: 4;
+}
+
+/* Animations */
+@keyframes animateBalloon {
+    to { transform: translateY(-40px); }
+}
+
+@keyframes animateBanner {
+    to { transform: translate(-50%, -20px); }
+}
+
+.letterForm {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    z-index: 6;
+}
+
+.letterForm::before {
+    content: "";
+    position: absolute;
+    background-color: #e69c9f;
+    width: 100px;
+    height: 100px;
+    bottom: 0;
+    left: 0;
+    clip-path: polygon(0 40%, 50% 0, 100% 40%, 100% 100%, 0 100%);
+}
+
+.letterForm::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    bottom: -30px;
+    background-color: #000;
+    opacity: 0.3;
+    filter: blur(10px);
+}
+
+.designBox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #d26f72;
+    clip-path: polygon(0 0, 50% 35%, 100% 0, 100% 100%, 0 100%);
+}
+
+.designBox::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65%;
+    background-color: #bd5559;
+    clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+
+.content {
+    position: absolute;
+    background-color: #F2EEE4;
+    width: 80%;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0);
+    height: 80px;
+    padding: 20px;
+    border-radius: 10px;
+    border: solid 4px #A88557;
+    transition: all 0.5s ease;
+}
+
+.content.actived {
+    bottom: 150px;
+    width: 300px;
+    height: auto;
+    max-height: 450px;
+}
+
+.mainContent {
+    font-size: 24px;
+    overflow-y: auto;
+    max-height: 200px;
+    position: relative;
+}
+
+.mainContent::after {
+    content: "|";
+    animation: blink 1s infinite;
+    margin-left: 4px;
+}
+
+.img1 {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%);
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 50%;
+    border: solid 4px #A88557;
+    transition: all 0.3s ease;
+}
+
+.img1 > img {
+    width: 100%;
+}
+
+/* Kim tuyến rơi */
+@keyframes moveLight {
+    0% { opacity: 0; transform: translateY(0); }
+    10%, 50% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(80vh); }
+}
+
+/* Hiệu ứng thư */
+@keyframes animateStartLetter {
+    from { transform: rotate(30deg) translateY(60%); }
+    to { transform: rotate(-30deg) translateY(60%); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .startLetter {
+        width: 90%;
+    }
+
+    .personName {
+        font-size: 28px;
+    }
+
+    .myAI {
+        height: 60px;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .recieve i {
+        font-size: 24px;
+    }
+
+    .balloon {
+        width: 80px;
+        bottom: 60px;
+    }
+
+    .bannerParty {
+        width: 90%;
+        top: 60px;
+    }
+
+    .content {
+        width: 85%;
+    }
+
+    .content.actived {
+        bottom: 100px;
+    }
+
+    .avatarRectangle {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 20px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 4px solid #ffb6c1;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+      
+      .avatarRectangle img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+      }
+      
+}
